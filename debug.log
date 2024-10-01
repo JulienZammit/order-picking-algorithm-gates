@@ -1,130 +1,130 @@
-2024-10-01 15:31:01,120 INFO:Traitement de l'instance : instance_0116_131940_Z1.txt
-2024-10-01 15:31:01,120 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131940_Z1.txt
-2024-10-01 15:31:01,123 INFO:NbLocations: 302
-2024-10-01 15:31:01,123 INFO:NbProducts: 200
-2024-10-01 15:31:01,123 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,123 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,123 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,123 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,123 INFO:NbOrders: 2
-2024-10-01 15:31:01,124 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,124 INFO:NbProducts: 138
-2024-10-01 15:31:01,175 INFO:Fin de l'analyse du fichier. Produits lus: 200, Commandes lues: 2
-2024-10-01 15:31:01,177 INFO:Solution pour instance_0116_131940_Z1.txt est valide.
-2024-10-01 15:31:01,177 INFO:Traitement de l'instance : instance_0116_131933_Z1.txt
-2024-10-01 15:31:01,177 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131933_Z1.txt
-2024-10-01 15:31:01,179 INFO:NbLocations: 400
-2024-10-01 15:31:01,180 INFO:NbProducts: 313
-2024-10-01 15:31:01,180 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,180 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,180 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,180 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,181 INFO:NbOrders: 6
-2024-10-01 15:31:01,181 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,181 INFO:NbProducts: 157
-2024-10-01 15:31:01,268 INFO:Fin de l'analyse du fichier. Produits lus: 313, Commandes lues: 6
-2024-10-01 15:31:01,271 INFO:Solution pour instance_0116_131933_Z1.txt est valide.
-2024-10-01 15:31:01,271 INFO:Traitement de l'instance : instance_0116_131936_Z2.txt
-2024-10-01 15:31:01,271 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131936_Z2.txt
-2024-10-01 15:31:01,277 INFO:NbLocations: 538
-2024-10-01 15:31:01,277 INFO:NbProducts: 611
-2024-10-01 15:31:01,277 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,277 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,277 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,277 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,280 INFO:NbOrders: 37
-2024-10-01 15:31:01,280 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,282 INFO:NbProducts: 148
-2024-10-01 15:31:01,441 INFO:Fin de l'analyse du fichier. Produits lus: 611, Commandes lues: 37
-2024-10-01 15:31:01,446 INFO:Solution pour instance_0116_131936_Z2.txt est valide.
-2024-10-01 15:31:01,446 INFO:Traitement de l'instance : instance_0116_131936_Z1.txt
-2024-10-01 15:31:01,446 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131936_Z1.txt
-2024-10-01 15:31:01,450 INFO:NbLocations: 497
-2024-10-01 15:31:01,450 INFO:NbProducts: 483
-2024-10-01 15:31:01,450 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,450 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,450 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,450 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,453 INFO:NbOrders: 37
-2024-10-01 15:31:01,453 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,454 INFO:NbProducts: 173
-2024-10-01 15:31:01,577 INFO:Fin de l'analyse du fichier. Produits lus: 483, Commandes lues: 37
-2024-10-01 15:31:01,584 INFO:Solution pour instance_0116_131936_Z1.txt est valide.
-2024-10-01 15:31:01,584 INFO:Traitement de l'instance : instance_0116_131948_Z1.txt
-2024-10-01 15:31:01,584 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131948_Z1.txt
-2024-10-01 15:31:01,586 INFO:NbLocations: 302
-2024-10-01 15:31:01,586 INFO:NbProducts: 191
-2024-10-01 15:31:01,586 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,587 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,587 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,588 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,589 INFO:NbOrders: 4
-2024-10-01 15:31:01,589 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,590 INFO:NbProducts: 138
-2024-10-01 15:31:01,635 INFO:Fin de l'analyse du fichier. Produits lus: 191, Commandes lues: 4
-2024-10-01 15:31:01,636 INFO:Solution pour instance_0116_131948_Z1.txt est valide.
-2024-10-01 15:31:01,636 INFO:Traitement de l'instance : instance_0116_131948_Z2.txt
-2024-10-01 15:31:01,636 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131948_Z2.txt
-2024-10-01 15:31:01,638 INFO:NbLocations: 301
-2024-10-01 15:31:01,638 INFO:NbProducts: 191
-2024-10-01 15:31:01,638 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,638 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,638 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,638 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,639 INFO:NbOrders: 4
-2024-10-01 15:31:01,639 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,639 INFO:NbProducts: 140
-2024-10-01 15:31:01,687 INFO:Fin de l'analyse du fichier. Produits lus: 191, Commandes lues: 4
-2024-10-01 15:31:01,688 INFO:Solution pour instance_0116_131948_Z2.txt est valide.
-2024-10-01 15:31:01,688 INFO:Traitement de l'instance : instance_0116_131942_Z2.txt
-2024-10-01 15:31:01,688 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131942_Z2.txt
-2024-10-01 15:31:01,694 INFO:NbLocations: 598
-2024-10-01 15:31:01,694 INFO:NbProducts: 757
-2024-10-01 15:31:01,694 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,694 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,694 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,694 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,698 INFO:NbOrders: 92
-2024-10-01 15:31:01,698 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,700 INFO:NbProducts: 139
-2024-10-01 15:31:01,892 INFO:Fin de l'analyse du fichier. Produits lus: 757, Commandes lues: 92
-2024-10-01 15:31:01,905 INFO:Solution pour instance_0116_131942_Z2.txt est valide.
-2024-10-01 15:31:01,905 INFO:Traitement de l'instance : instance_0116_131933_Z2.txt
-2024-10-01 15:31:01,905 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131933_Z2.txt
-2024-10-01 15:31:01,908 INFO:NbLocations: 466
-2024-10-01 15:31:01,908 INFO:NbProducts: 401
-2024-10-01 15:31:01,908 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:01,908 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:01,908 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:01,909 INFO:Début de la lecture des produits
-2024-10-01 15:31:01,911 INFO:NbOrders: 6
-2024-10-01 15:31:01,911 INFO:Début de la lecture des commandes
-2024-10-01 15:31:01,912 INFO:NbProducts: 161
-2024-10-01 15:31:02,044 INFO:Fin de l'analyse du fichier. Produits lus: 401, Commandes lues: 6
-2024-10-01 15:31:02,048 INFO:Solution pour instance_0116_131933_Z2.txt est valide.
-2024-10-01 15:31:02,048 INFO:Traitement de l'instance : instance_0116_131942_Z1.txt
-2024-10-01 15:31:02,048 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131942_Z1.txt
-2024-10-01 15:31:02,052 INFO:NbLocations: 562
-2024-10-01 15:31:02,052 INFO:NbProducts: 725
-2024-10-01 15:31:02,052 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:02,052 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:02,052 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:02,052 INFO:Début de la lecture des produits
-2024-10-01 15:31:02,056 INFO:NbOrders: 93
-2024-10-01 15:31:02,056 INFO:Début de la lecture des commandes
-2024-10-01 15:31:02,058 INFO:NbProducts: 145
-2024-10-01 15:31:02,220 INFO:Fin de l'analyse du fichier. Produits lus: 725, Commandes lues: 93
-2024-10-01 15:31:02,236 INFO:Solution pour instance_0116_131942_Z1.txt est valide.
-2024-10-01 15:31:02,236 INFO:Traitement de l'instance : instance_0116_131940_Z2.txt
-2024-10-01 15:31:02,236 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131940_Z2.txt
-2024-10-01 15:31:02,237 INFO:NbLocations: 277
-2024-10-01 15:31:02,237 INFO:NbProducts: 166
-2024-10-01 15:31:02,238 INFO:CAPACITE_CHARIOT: 6
-2024-10-01 15:31:02,238 INFO:NbDimensionsCapacity: 2
-2024-10-01 15:31:02,238 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
-2024-10-01 15:31:02,238 INFO:Début de la lecture des produits
-2024-10-01 15:31:02,238 INFO:NbOrders: 2
-2024-10-01 15:31:02,238 INFO:Début de la lecture des commandes
-2024-10-01 15:31:02,238 INFO:NbProducts: 126
-2024-10-01 15:31:02,279 INFO:Fin de l'analyse du fichier. Produits lus: 166, Commandes lues: 2
-2024-10-01 15:31:02,280 INFO:Solution pour instance_0116_131940_Z2.txt est valide.
+2024-10-01 16:30:46,620 INFO:Traitement de l'instance : instance_0116_131940_Z1.txt
+2024-10-01 16:30:46,620 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131940_Z1.txt
+2024-10-01 16:30:46,621 INFO:NbLocations: 302
+2024-10-01 16:30:46,621 INFO:NbProducts: 200
+2024-10-01 16:30:46,621 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,621 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,621 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,621 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,622 INFO:NbOrders: 2
+2024-10-01 16:30:46,622 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,622 INFO:NbProducts: 138
+2024-10-01 16:30:46,632 INFO:Fin de l'analyse du fichier. Produits lus: 200, Commandes lues: 2
+2024-10-01 16:30:46,634 INFO:Solution pour instance_0116_131940_Z1.txt est valide.
+2024-10-01 16:30:46,634 INFO:Traitement de l'instance : instance_0116_131933_Z1.txt
+2024-10-01 16:30:46,634 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131933_Z1.txt
+2024-10-01 16:30:46,636 INFO:NbLocations: 400
+2024-10-01 16:30:46,636 INFO:NbProducts: 313
+2024-10-01 16:30:46,636 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,636 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,636 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,636 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,637 INFO:NbOrders: 6
+2024-10-01 16:30:46,637 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,638 INFO:NbProducts: 157
+2024-10-01 16:30:46,656 INFO:Fin de l'analyse du fichier. Produits lus: 313, Commandes lues: 6
+2024-10-01 16:30:46,660 INFO:Solution pour instance_0116_131933_Z1.txt est valide.
+2024-10-01 16:30:46,660 INFO:Traitement de l'instance : instance_0116_131936_Z2.txt
+2024-10-01 16:30:46,660 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131936_Z2.txt
+2024-10-01 16:30:46,664 INFO:NbLocations: 538
+2024-10-01 16:30:46,664 INFO:NbProducts: 611
+2024-10-01 16:30:46,664 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,664 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,664 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,664 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,667 INFO:NbOrders: 37
+2024-10-01 16:30:46,667 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,668 INFO:NbProducts: 148
+2024-10-01 16:30:46,700 INFO:Fin de l'analyse du fichier. Produits lus: 611, Commandes lues: 37
+2024-10-01 16:30:46,704 INFO:Solution pour instance_0116_131936_Z2.txt est valide.
+2024-10-01 16:30:46,704 INFO:Traitement de l'instance : instance_0116_131936_Z1.txt
+2024-10-01 16:30:46,704 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131936_Z1.txt
+2024-10-01 16:30:46,707 INFO:NbLocations: 497
+2024-10-01 16:30:46,707 INFO:NbProducts: 483
+2024-10-01 16:30:46,707 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,707 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,707 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,707 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,710 INFO:NbOrders: 37
+2024-10-01 16:30:46,710 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,710 INFO:NbProducts: 173
+2024-10-01 16:30:46,739 INFO:Fin de l'analyse du fichier. Produits lus: 483, Commandes lues: 37
+2024-10-01 16:30:46,745 INFO:Solution pour instance_0116_131936_Z1.txt est valide.
+2024-10-01 16:30:46,745 INFO:Traitement de l'instance : instance_0116_131948_Z1.txt
+2024-10-01 16:30:46,745 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131948_Z1.txt
+2024-10-01 16:30:46,746 INFO:NbLocations: 302
+2024-10-01 16:30:46,746 INFO:NbProducts: 191
+2024-10-01 16:30:46,746 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,746 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,746 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,746 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,747 INFO:NbOrders: 4
+2024-10-01 16:30:46,747 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,747 INFO:NbProducts: 138
+2024-10-01 16:30:46,758 INFO:Fin de l'analyse du fichier. Produits lus: 191, Commandes lues: 4
+2024-10-01 16:30:46,759 INFO:Solution pour instance_0116_131948_Z1.txt est valide.
+2024-10-01 16:30:46,759 INFO:Traitement de l'instance : instance_0116_131948_Z2.txt
+2024-10-01 16:30:46,759 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131948_Z2.txt
+2024-10-01 16:30:46,760 INFO:NbLocations: 301
+2024-10-01 16:30:46,760 INFO:NbProducts: 191
+2024-10-01 16:30:46,760 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,760 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,760 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,760 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,761 INFO:NbOrders: 4
+2024-10-01 16:30:46,761 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,761 INFO:NbProducts: 140
+2024-10-01 16:30:46,771 INFO:Fin de l'analyse du fichier. Produits lus: 191, Commandes lues: 4
+2024-10-01 16:30:46,772 INFO:Solution pour instance_0116_131948_Z2.txt est valide.
+2024-10-01 16:30:46,772 INFO:Traitement de l'instance : instance_0116_131942_Z2.txt
+2024-10-01 16:30:46,772 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131942_Z2.txt
+2024-10-01 16:30:46,778 INFO:NbLocations: 598
+2024-10-01 16:30:46,778 INFO:NbProducts: 757
+2024-10-01 16:30:46,778 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,778 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,778 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,778 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,782 INFO:NbOrders: 92
+2024-10-01 16:30:46,782 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,785 INFO:NbProducts: 139
+2024-10-01 16:30:46,826 INFO:Fin de l'analyse du fichier. Produits lus: 757, Commandes lues: 92
+2024-10-01 16:30:46,836 INFO:Solution pour instance_0116_131942_Z2.txt est valide.
+2024-10-01 16:30:46,836 INFO:Traitement de l'instance : instance_0116_131933_Z2.txt
+2024-10-01 16:30:46,836 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131933_Z2.txt
+2024-10-01 16:30:46,838 INFO:NbLocations: 466
+2024-10-01 16:30:46,838 INFO:NbProducts: 401
+2024-10-01 16:30:46,838 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,838 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,838 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,838 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,840 INFO:NbOrders: 6
+2024-10-01 16:30:46,840 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,841 INFO:NbProducts: 161
+2024-10-01 16:30:46,866 INFO:Fin de l'analyse du fichier. Produits lus: 401, Commandes lues: 6
+2024-10-01 16:30:46,868 INFO:Solution pour instance_0116_131933_Z2.txt est valide.
+2024-10-01 16:30:46,869 INFO:Traitement de l'instance : instance_0116_131942_Z1.txt
+2024-10-01 16:30:46,869 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131942_Z1.txt
+2024-10-01 16:30:46,872 INFO:NbLocations: 562
+2024-10-01 16:30:46,872 INFO:NbProducts: 725
+2024-10-01 16:30:46,872 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,872 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,872 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,872 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,875 INFO:NbOrders: 93
+2024-10-01 16:30:46,875 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,877 INFO:NbProducts: 145
+2024-10-01 16:30:46,929 INFO:Fin de l'analyse du fichier. Produits lus: 725, Commandes lues: 93
+2024-10-01 16:30:46,944 INFO:Solution pour instance_0116_131942_Z1.txt est valide.
+2024-10-01 16:30:46,944 INFO:Traitement de l'instance : instance_0116_131940_Z2.txt
+2024-10-01 16:30:46,944 INFO:Analyse du fichier d'instance: data/instances/instance_0116_131940_Z2.txt
+2024-10-01 16:30:46,945 INFO:NbLocations: 277
+2024-10-01 16:30:46,945 INFO:NbProducts: 166
+2024-10-01 16:30:46,945 INFO:CAPACITE_CHARIOT: 6
+2024-10-01 16:30:46,945 INFO:NbDimensionsCapacity: 2
+2024-10-01 16:30:46,945 INFO:CAPACITE_COLIS: (12000.0, 92160.0)
+2024-10-01 16:30:46,945 INFO:Début de la lecture des produits
+2024-10-01 16:30:46,946 INFO:NbOrders: 2
+2024-10-01 16:30:46,946 INFO:Début de la lecture des commandes
+2024-10-01 16:30:46,946 INFO:NbProducts: 126
+2024-10-01 16:30:46,955 INFO:Fin de l'analyse du fichier. Produits lus: 166, Commandes lues: 2
+2024-10-01 16:30:46,956 INFO:Solution pour instance_0116_131940_Z2.txt est valide.

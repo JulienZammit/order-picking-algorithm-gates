@@ -1,11 +1,20 @@
 # tests/test_analyseur_instances.py
 
+import sys
+import os
+
+# Ajouter le répertoire 'src' au chemin de recherche
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = os.path.abspath(os.path.join(current_dir, '../src'))
+sys.path.insert(0, src_dir)
+
 import unittest
-from src.analyseur_instances import analyser_instance
+from analyseur_instances import analyser_instance
 
 class TestAnalyseurInstances(unittest.TestCase):
     def test_analyser_instance(self):
-        chemin_fichier = 'data/instances/instance_0116_131933_Z2.txt'
+        # Construire le chemin complet vers le fichier d'instance
+        chemin_fichier = os.path.abspath(os.path.join(current_dir, '../data/instances/instance_0116_131933_Z2.txt'))
         entrepot = analyser_instance(chemin_fichier)
         
         # Afficher l'entrepôt

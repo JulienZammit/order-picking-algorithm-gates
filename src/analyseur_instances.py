@@ -1,6 +1,5 @@
 # analyseur_instances.py
 
-import os
 import logging
 from models.produit import Produit
 from models.commande import Commande
@@ -32,7 +31,6 @@ def analyser_instance(chemin_fichier):
     nb_commandes = 0
     while i < len(lignes):
         ligne = lignes[i].strip()
-        logging.debug(f"Ligne {i}: {ligne}")
 
         # Vérifier les mots-clés même si la ligne commence par '//'
         if 'NbLocations' in ligne:
@@ -107,7 +105,6 @@ def analyser_instance(chemin_fichier):
             logging.info("Début de la lecture des produits")
             while produits_lus < nb_produits and i < len(lignes):
                 ligne_produit = lignes[i].strip()
-                logging.debug(f"Ligne produit {i}: {ligne_produit}")
                 if not ligne_produit or ligne_produit.startswith('//'):
                     i += 1
                     continue
@@ -146,7 +143,6 @@ def analyser_instance(chemin_fichier):
             logging.info("Début de la lecture des commandes")
             while commandes_lues < nb_commandes and i < len(lignes):
                 ligne_commande = lignes[i].strip()
-                logging.debug(f"Ligne commande {i}: {ligne_commande}")
                 if not ligne_commande or ligne_commande.startswith('//'):
                     i += 1
                     continue
@@ -186,7 +182,6 @@ def analyser_instance(chemin_fichier):
                 continue
 
             # Sinon, ligne non reconnue
-            logging.debug(f"Ligne non reconnue à la ligne {i}: {ligne}")
             i += 1  # Incrémenter pour éviter une boucle infinie
 
     # Assigner le graphe à l'entrepôt
