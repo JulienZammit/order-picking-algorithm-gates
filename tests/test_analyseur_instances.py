@@ -51,6 +51,26 @@ class TestAnalyseurInstances(unittest.TestCase):
         # Vérifier que le graphe est correctement défini
         self.assertIsNotNone(entrepot.graphe, "Le graphe doit être défini.")
         
+        # Vérifier le nombre de localisations
+        nb_locations_attendu = 447  # Par exemple, nombre attendu de localisations
+        self.assertEqual(len(entrepot.graphe.locations), nb_locations_attendu, f"Le nombre de localisations doit être {nb_locations_attendu}.")
+        
+        # Vérifier le nombre d'arcs
+        nb_arcs_attendu = 896  # Par exemple, nombre attendu d'arcs
+        self.assertEqual(len(entrepot.graphe.arcs), nb_arcs_attendu, f"Le nombre d'arcs doit être {nb_arcs_attendu}.")
+        
+        # Vérifier une localisation spécifique
+        location0 = entrepot.graphe.locations.get(0)
+        self.assertIsNotNone(location0, "La localisation 0 doit exister.")
+        self.assertEqual(location0.x, 0.0, "La coordonnée x de la localisation 0 doit être 0.0.")
+        self.assertEqual(location0.y, 0.0, "La coordonnée y de la localisation 0 doit être 0.0.")
+        self.assertEqual(location0.name, 'depotStart', "Le nom de la localisation 0 doit être 'depotStart'.")
+        
+        # Vérifier un arc spécifique
+        arc0 = next((arc for arc in entrepot.graphe.arcs if arc.start == 0 and arc.end == 442), None)
+        self.assertIsNotNone(arc0, "L'arc de 0 à 442 doit exister.")
+        self.assertEqual(arc0.distance, 5000.0, "La distance de l'arc de 0 à 442 doit être 5000.0.")
+        
         print("Test réussi : les données de l'instance ont été correctement analysées.")
 
 if __name__ == '__main__':
