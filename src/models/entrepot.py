@@ -16,6 +16,7 @@ class Entrepot:
         self.depot_arrivee = None
         self.capacite_colis = (0, 0)  # (poids_max, volume_max)
         self.capacite_chariot = 0
+        self.positions = {}  # Dictionnaire {id_localisation: (x, y)}
 
     def ajouter_produit(self, produit):
         """

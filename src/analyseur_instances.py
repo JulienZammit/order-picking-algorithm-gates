@@ -159,7 +159,13 @@ def analyser_instance(chemin_fichier):
                             break
                         id_produit = int(data[idx])
                         quantite = int(data[idx + 1])
-                        commande.ajouter_produit(id_produit, quantite)
+                        # Récupérer les coordonnées du produit depuis entrepot.produits
+                        if id_produit in entrepot.produits:
+                            coordonnees = entrepot.produits[id_produit].coordonnees
+                        else:
+                            logging.warning(f"Produit {id_produit} non trouvé pour la commande {id_commande}")
+                            coordonnees = None
+                        commande.ajouter_produit(id_produit, quantite, coordonnees)
                         idx += 2
                     entrepot.ajouter_commande(commande)
                     logging.debug(f"Commande ajoutée: {commande}")

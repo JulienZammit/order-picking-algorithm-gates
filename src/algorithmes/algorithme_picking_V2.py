@@ -11,69 +11,55 @@ logger = logging.getLogger(__name__)
 
 def repartition_articles_colis(entrepot):
     """
-    Répartit les articles des commandes dans les colis en optimisant le remplissage des colis.
-    Utilise l'algorithme First-Fit Decreasing pour le bin packing.
+    Répartit les articles des commandes dans les colis en optimisant les localisations pour réduire les distances.
 
     :param entrepot: Objet Entrepot contenant les commandes et les produits.
     :return: Liste des colis créés.
     """
+    from collections import defaultdict
     colis_list = []
     id_colis = 1
 
     for commande in entrepot.commandes.values():
-        produits_commande = []
-
-        # Construire une liste des produits avec quantités
+        # Créer un dictionnaire des produits par localisation
+        produits_par_localisation = defaultdict(list)
         for id_produit, quantite in commande.lignes_commande.items():
             produit = entrepot.produits[id_produit]
-            volume_total = produit.volume_unitaire * quantite
-            poids_total = produit.poids_unitaire * quantite
-            produits_commande.append({
-                'id_produit': id_produit,
-                'quantite': quantite,
-                'produit': produit,
-                'volume_total': volume_total,
-                'poids_total': poids_total
-            })
+            produits_par_localisation[produit.localisation].append((id_produit, quantite, produit))
 
-        # Trier les produits par volume total décroissant
-        produits_tries = sorted(produits_commande, key=lambda x: x['volume_total'], reverse=True)
+        # Trier les localisations par ordre croissant (ou toute autre métrique)
+        localisations_triees = sorted(produits_par_localisation.keys())
 
         # Liste des colis pour cette commande
         colis_commande = []
+        for _ in range(commande.mc):
+            colis = Colis(id_colis, commande.id, entrepot.capacite_colis[0], entrepot.capacite_colis[1])
+            id_colis += 1
+            colis_commande.append(colis)
 
-        for item in produits_tries:
-            id_produit = item['id_produit']
-            quantite = item['quantite']
-            produit = item['produit']
-            quantite_restante = quantite
+        # Répartir les produits dans les colis en groupant par localisation
+        for localisation in localisations_triees:
+            produits = produits_par_localisation[localisation]
+            for id_produit, quantite, produit in produits:
+                quantite_restante = quantite
 
-            while quantite_restante > 0:
                 # Tenter d'ajouter le produit dans les colis existants
-                place_trouvee = False
                 for colis in colis_commande:
                     quantite_ajoutee = colis.peut_ajouter_produit(produit, quantite_restante)
                     if quantite_ajoutee > 0:
                         colis.ajouter_produit(produit, quantite_ajoutee)
                         quantite_restante -= quantite_ajoutee
-                        place_trouvee = True
-                        if quantite_restante == 0:
-                            break
-                # Si le produit n'a pas pu être ajouté, créer un nouveau colis
-                if not place_trouvee:
-                    colis = Colis(id_colis, commande.id, entrepot.capacite_colis[0], entrepot.capacite_colis[1])
-                    quantite_ajoutee = colis.peut_ajouter_produit(produit, quantite_restante)
-                    if quantite_ajoutee > 0:
-                        colis.ajouter_produit(produit, quantite_ajoutee)
-                        quantite_restante -= quantite_ajoutee
-                        colis_commande.append(colis)
-                        id_colis += 1
-                    else:
-                        logger.warning(f"Le produit {id_produit} ne peut pas être ajouté dans un nouveau colis (trop volumineux).")
-                        break  # Ou gérer autrement si le produit ne rentre pas dans un colis vide
+                    if quantite_restante == 0:
+                        break
+
+                # Si quantite_restante > 0, créer un nouveau colis (si possible)
+                if quantite_restante > 0:
+                    logger.warning(f"Impossible d'ajouter la quantité complète du produit {id_produit} dans les colis existants de la commande {commande.id}")
+                    # Vous pouvez décider de créer un nouveau colis ou de gérer autrement ce cas
 
         # Ajouter les colis non vides à la liste générale
-        colis_list.extend(colis_commande)
+        colis_non_vides = [colis for colis in colis_commande if colis.produits]
+        colis_list.extend(colis_non_vides)
 
     return colis_list
 
@@ -183,7 +169,6 @@ def optimiser_parcours(positions, entrepot):
             coordonnees_positions.append((id_localisation, x, y))
         else:
             # Gestion du cas où la localisation n'est pas trouvée
-            logger.warning(f"Localisation {id_localisation} non trouvée dans l'entrepôt.")
             coordonnees_positions.append((id_localisation, 0, 0))  # Coordonnées par défaut
 
     # Convertir en numpy array

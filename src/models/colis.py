@@ -37,7 +37,9 @@ class Colis:
 
         self.poids_total += produit.poids_unitaire * quantite
         self.volume_total += produit.volume_unitaire * quantite
-        
+    def centre_gravite(self, entrepot):
+        positions = [entrepot.produits[id_prod].localisation for id_prod in self.produits]
+        return sum(positions) / len(positions) if positions else 0    
     def peut_ajouter_produit(self, produit, quantite):
         """
         Vérifie quelle quantité du produit peut être ajoutée dans le colis.
@@ -77,6 +79,16 @@ class Colis:
         # Retourner la quantité maximale possible, en s'assurant qu'elle est positive
         return max(0, quantite_max_possible)
 
+
+    def taux_remplissage(self):
+        """
+        Calcule le taux de remplissage du colis en fonction du volume.
+        
+        :return: Un pourcentage (valeur entre 0 et 1) représentant le taux de remplissage du colis.
+        """
+        if self.volume_max > 0:
+            return self.volume_total / self.volume_max
+        return 0
 
     def __repr__(self):
         return f"Colis(id={self.id}, id_commande={self.id_commande}, poids_total={self.poids_total}, volume_total={self.volume_total}, produits={self.produits})"
