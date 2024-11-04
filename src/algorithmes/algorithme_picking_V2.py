@@ -16,7 +16,6 @@ def repartition_articles_colis(entrepot):
     :param entrepot: Objet Entrepot contenant les commandes et les produits.
     :return: Liste des colis créés.
     """
-    from collections import defaultdict
     colis_list = []
     id_colis = 1
 
@@ -27,15 +26,14 @@ def repartition_articles_colis(entrepot):
             produit = entrepot.produits[id_produit]
             produits_par_localisation[produit.localisation].append((id_produit, quantite, produit))
 
-        # Trier les localisations par ordre croissant (ou toute autre métrique)
+        # Trier les localisations (vous pouvez choisir un autre critère de tri)
         localisations_triees = sorted(produits_par_localisation.keys())
 
         # Liste des colis pour cette commande
         colis_commande = []
-        for _ in range(commande.mc):
-            colis = Colis(id_colis, commande.id, entrepot.capacite_colis[0], entrepot.capacite_colis[1])
-            id_colis += 1
-            colis_commande.append(colis)
+        colis = Colis(id_colis, commande.id, entrepot.capacite_colis[0], entrepot.capacite_colis[1])
+        id_colis += 1
+        colis_commande.append(colis)
 
         # Répartir les produits dans les colis en groupant par localisation
         for localisation in localisations_triees:
@@ -43,26 +41,22 @@ def repartition_articles_colis(entrepot):
             for id_produit, quantite, produit in produits:
                 quantite_restante = quantite
 
-                # Tenter d'ajouter le produit dans les colis existants
-                for colis in colis_commande:
+                while quantite_restante > 0:
                     quantite_ajoutee = colis.peut_ajouter_produit(produit, quantite_restante)
                     if quantite_ajoutee > 0:
                         colis.ajouter_produit(produit, quantite_ajoutee)
                         quantite_restante -= quantite_ajoutee
-                    if quantite_restante == 0:
-                        break
-
-                # Si quantite_restante > 0, créer un nouveau colis (si possible)
-                if quantite_restante > 0:
-                    logger.warning(f"Impossible d'ajouter la quantité complète du produit {id_produit} dans les colis existants de la commande {commande.id}")
-                    # Vous pouvez décider de créer un nouveau colis ou de gérer autrement ce cas
+                    else:
+                        # Si le colis est plein, créer un nouveau colis
+                        colis = Colis(id_colis, commande.id, entrepot.capacite_colis[0], entrepot.capacite_colis[1])
+                        id_colis += 1
+                        colis_commande.append(colis)
 
         # Ajouter les colis non vides à la liste générale
         colis_non_vides = [colis for colis in colis_commande if colis.produits]
         colis_list.extend(colis_non_vides)
 
     return colis_list
-
 
 def regroupement_colis_chariots(entrepot, colis_list):
     """
@@ -78,8 +72,17 @@ def regroupement_colis_chariots(entrepot, colis_list):
 
     capacite_chariot = entrepot.capacite_chariot
 
-    # Calculer les centres de gravité des colis
-    positions = np.array([colis.centre_gravite(entrepot) for colis in colis_list])
+    # Calculer les centres de gravité des colis en utilisant les positions des produits
+    positions = []
+    for colis in colis_list:
+        coordonnees_produits = []
+        for id_produit in colis.produits:
+            produit = entrepot.produits[id_produit]
+            location = entrepot.graphe.locations[produit.localisation]
+            coordonnees_produits.append([location.x, location.y])
+        # Calculer le centre de gravité du colis
+        centre = np.mean(coordonnees_produits, axis=0)
+        positions.append(centre)
 
     # Déterminer le nombre de clusters (chariots) nécessaires
     nb_chariots = max(1, len(colis_list) // capacite_chariot)
@@ -90,7 +93,7 @@ def regroupement_colis_chariots(entrepot, colis_list):
     if nb_chariots == 0:
         nb_chariots = 1
     kmeans = KMeans(n_clusters=nb_chariots)
-    positions = positions.reshape(-1, 1) if positions.ndim == 1 else positions
+    positions = np.array(positions)
     labels = kmeans.fit_predict(positions)
 
     chariots = []
@@ -105,7 +108,7 @@ def regroupement_colis_chariots(entrepot, colis_list):
     for colis_cluster in colis_par_cluster.values():
         for i in range(0, len(colis_cluster), capacite_chariot):
             chariot = Chariot(id_chariot, capacite_chariot)
-            for colis in colis_cluster[i:i+capacite_chariot]:
+            for colis in colis_cluster[i:i + capacite_chariot]:
                 chariot.ajouter_colis(colis)
             chariots.append(chariot)
             id_chariot += 1
@@ -120,9 +123,6 @@ def calcul_tournees(entrepot, chariots):
     :param chariots: Liste des chariots.
     :return: Liste des tournées.
     """
-    from scipy.spatial.distance import cdist
-    import numpy as np
-
     tournees = []
     id_tournee = 1
 
@@ -133,15 +133,27 @@ def calcul_tournees(entrepot, chariots):
         for colis in chariot.colis:
             for id_produit in colis.produits:
                 produit = entrepot.produits[id_produit]
-                if produit.localisation not in positions_a_visiter:
-                    positions_a_visiter.append(produit.localisation)
+                id_localisation = produit.localisation
+                if id_localisation not in positions_a_visiter:
+                    positions_a_visiter.append(id_localisation)
+
+        # Ajouter le dépôt de départ au début et le dépôt d'arrivée à la fin
+        positions_a_visiter = [entrepot.graphe.depot_depart] + positions_a_visiter + [entrepot.graphe.depot_arrivee]
 
         # Optimiser la séquence des positions
         sequence_positions = optimiser_parcours(positions_a_visiter, entrepot)
 
         tournee.sequence_positions = sequence_positions
-        # Calculer la distance totale (simplifié ici)
-        tournee.distance_totale = len(sequence_positions)  # Vous pouvez améliorer le calcul réel de la distance
+
+        # Calculer la distance totale en utilisant le graphe
+        distance_totale = 0
+        for i in range(len(sequence_positions) - 1):
+            depart = sequence_positions[i]
+            arrivee = sequence_positions[i + 1]
+            distance = entrepot.graphe.shortest_path_length(depart, arrivee)
+            distance_totale += distance
+
+        tournee.distance_totale = distance_totale
 
         tournees.append(tournee)
         id_tournee += 1
@@ -150,44 +162,48 @@ def calcul_tournees(entrepot, chariots):
 
 def optimiser_parcours(positions, entrepot):
     """
-    Implémente une heuristique du plus proche voisin pour optimiser le parcours des positions.
+    Optimise le parcours des positions en utilisant le graphe de l'entrepôt.
 
     :param positions: Liste des positions (id_localisation) à visiter.
-    :param entrepot: Objet Entrepot contenant les localisations avec leurs coordonnées.
+    :param entrepot: Objet Entrepot contenant le graphe de l'entrepôt.
     :return: Liste ordonnée des positions optimisées.
     """
-    import numpy as np
-
     if not positions:
         return []
 
-    # Récupérer les coordonnées des positions
-    coordonnees_positions = []
-    for id_localisation in positions:
-        if id_localisation in entrepot.localisations:
-            x, y = entrepot.localisations[id_localisation][:2]
-            coordonnees_positions.append((id_localisation, x, y))
-        else:
-            # Gestion du cas où la localisation n'est pas trouvée
-            coordonnees_positions.append((id_localisation, 0, 0))  # Coordonnées par défaut
+    graphe = entrepot.graphe
 
-    # Convertir en numpy array
-    ids = [item[0] for item in coordonnees_positions]
-    coords = np.array([[item[1], item[2]] for item in coordonnees_positions])
+    # Calculer la matrice des distances entre les positions en utilisant les plus courts chemins
+    n = len(positions)
+    distance_matrix = [[0]*n for _ in range(n)]
 
-    n = len(coords)
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                distance_matrix[i][j] = 0
+            else:
+                distance = graphe.shortest_path_length(positions[i], positions[j]) or float('inf')
+                distance_matrix[i][j] = distance
+
+    # Appliquer l'heuristique du plus proche voisin en utilisant la matrice des distances
     visited = [False] * n
     sequence = []
     current_index = 0  # On commence par la première position
-    sequence.append(ids[current_index])
+    sequence.append(positions[current_index])
     visited[current_index] = True
 
     for _ in range(n - 1):
-        distances = np.linalg.norm(coords - coords[current_index], axis=1)
-        distances[visited] = np.inf  # Ignorer les positions déjà visitées
-        next_index = np.argmin(distances)
-        sequence.append(ids[next_index])
-        visited[next_index] = True
-        current_index = next_index
+        min_distance = float('inf')
+        next_index = None
+        for j in range(n):
+            if not visited[j] and distance_matrix[current_index][j] < min_distance:
+                min_distance = distance_matrix[current_index][j]
+                next_index = j
+        if next_index is not None:
+            sequence.append(positions[next_index])
+            visited[next_index] = True
+            current_index = next_index
+        else:
+            break  # Plus de positions à visiter
 
     return sequence

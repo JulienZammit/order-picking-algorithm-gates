@@ -66,6 +66,13 @@ class GrapheEntrepot:
         """
         self.depot_depart = depot_depart
         self.depot_arrivee = depot_arrivee
+        
+    def shortest_path_length(self, start, end):
+        """
+        Calcule la distance minimale entre deux
+        localisations en utilisant l'algorithme de Dijkstra.
+        """
+        return self.distances.get((start, end), None)
 
     def __repr__(self):
         return f"GrapheEntrepot(nb_locations={len(self.locations)}, nb_arcs={len(self.arcs)}, distances={len(self.distances)})"
