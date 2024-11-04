@@ -16,7 +16,7 @@ logging.basicConfig(
 from analyseur_instances import analyser_instance
 from generateur_solutions import generer_fichier_solution
 from utils.validation import valider_solution
-from algorithmes.algorithme_picking_V2 import (
+from algorithmes.algorithme_picking_V3 import (
     repartition_articles_colis,
     regroupement_colis_chariots,
     calcul_tournees,

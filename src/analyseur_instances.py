@@ -48,7 +48,6 @@ def analyser_instance(chemin_fichier):
         logging.error(f"Le fichier {chemin_fichier} n'a pas été trouvé.")
         return None
     
-    # TODO : supprimer tout ce qu'il y a derrière Graph
     # Nettoyage des lignes contenant 'Graph'
     lignes = nettoyer_ligne_graph(lignes)
 

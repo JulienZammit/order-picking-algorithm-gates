@@ -66,13 +66,38 @@ class GrapheEntrepot:
         """
         self.depot_depart = depot_depart
         self.depot_arrivee = depot_arrivee
-        
+
+    def calculer_tous_plus_courts_chemins(self):
+        """
+        Calcule les distances minimales entre toutes les paires de localisations
+        en utilisant l'algorithme de Floyd-Warshall.
+        """
+        # Initialisation de la matrice des distances
+        nodes = list(self.locations.keys())
+        n = len(nodes)
+        self.all_pairs_distances = {i: {j: float('inf') for j in nodes} for i in nodes}
+
+        # Distance de chaque nœud à lui-même est 0
+        for node in nodes:
+            self.all_pairs_distances[node][node] = 0
+
+        # Initialisation avec les distances directes
+        for arc in self.arcs:
+            self.all_pairs_distances[arc.start][arc.end] = arc.distance
+
+        # Algorithme de Floyd-Warshall
+        for k in nodes:
+            for i in nodes:
+                for j in nodes:
+                    if self.all_pairs_distances[i][j] > self.all_pairs_distances[i][k] + self.all_pairs_distances[k][j]:
+                        self.all_pairs_distances[i][j] = self.all_pairs_distances[i][k] + self.all_pairs_distances[k][j]
+
     def shortest_path_length(self, start, end):
         """
-        Calcule la distance minimale entre deux
-        localisations en utilisant l'algorithme de Dijkstra.
+        Retourne la distance minimale entre deux localisations.
+        Doit être appelé après calculer_tous_plus_courts_chemins.
         """
-        return self.distances.get((start, end), None)
+        return self.all_pairs_distances.get(start, {}).get(end, float('inf'))
 
     def __repr__(self):
         return f"GrapheEntrepot(nb_locations={len(self.locations)}, nb_arcs={len(self.arcs)}, distances={len(self.distances)})"
